@@ -1,5 +1,6 @@
-'use client';
-import { useRouter } from 'next/navigation';
+"use client";
+import { useRouter } from "next/navigation";
+
 
 export default function Home() {
   const router = useRouter();
@@ -13,13 +14,13 @@ export default function Home() {
       <h1 className="text-3xl font-bold mb-6">GitHubSpy</h1>
       <div className="flex gap-4">
         <button
-          onClick={() => handleTabSelection('developer')}
+          onClick={() => handleTabSelection("developer")}
           className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
         >
           Developer Tab
         </button>
         <button
-          onClick={() => handleTabSelection('client')}
+          onClick={() => handleTabSelection("client")}
           className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600"
         >
           Client Tab
