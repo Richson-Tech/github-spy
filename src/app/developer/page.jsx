@@ -4,6 +4,7 @@ import axios from 'axios';
 import Loader from '@/components/Loader';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Image from 'next/image';
 
 export default function Developer() {
   const [username, setUsername] = useState('');
@@ -44,7 +45,7 @@ export default function Developer() {
       {loading && <Loader />}
       {developerInfo && (
         <div className="bg-white p-4 rounded shadow">
-          <img src={developerInfo.avatar_url} alt={developerInfo.name} className="w-16 h-16 rounded-full mb-4" />
+          <Image src={developerInfo.avatar_url} alt={developerInfo.name} className="w-16 h-16 rounded-full mb-4" />
           <h2 className="text-xl font-bold">{developerInfo.name}</h2>
           <p>Followers: {developerInfo.followers}</p>
           <p>Location: {developerInfo.location || 'N/A'}</p>
