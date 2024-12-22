@@ -24,8 +24,8 @@ export default function Developer() {
   };
 
   return (
-    <div className="p-6 bg-gray-100 min-h-screen">
-      <h1 className="text-2xl font-bold mb-4">Developer Spy</h1>
+    <div className="p-6 min-h-screen">
+      <h1 className="text-2xl font-bold mb-4 text-white">Developer Spy</h1>
       <div className="mb-4">
         <input
           type="text"
@@ -48,7 +48,7 @@ export default function Developer() {
           <h2 className="text-xl font-bold">{developerInfo.name}</h2>
           <p>Followers: {developerInfo.followers}</p>
           <p>Location: {developerInfo.location || 'N/A'}</p>
-          <p>Twitter: {developerInfo.twitter_username || 'N/A'}</p>
+          <p>Twitter Handle: {developerInfo.twitter_username || 'N/A'}</p>
         </div>
       )}
     </div>
