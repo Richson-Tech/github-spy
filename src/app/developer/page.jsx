@@ -16,7 +16,7 @@ export default function Developer() {
     try {
       const response = await axios.get(`https://api.github.com/users/${username}`);
       setDeveloperInfo(response.data);
-      toast.success('Developer info fetched successfully!');
+      toast.success('Spyed on Developer info successfully!');
     } catch (error) {
       toast.error('Failed to fetch developer info!');
     } finally {
