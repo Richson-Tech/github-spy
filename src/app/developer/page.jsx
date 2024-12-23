@@ -1,24 +1,26 @@
-'use client';
-import { useState } from 'react';
-import axios from 'axios';
-import Loader from '@/components/Loader';
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import Image from 'next/image';
+"use client";
+import { useState } from "react";
+import axios from "axios";
+import Loader from "@/components/Loader";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import Image from "next/image";
 
 export default function Developer() {
-  const [username, setUsername] = useState('');
+  const [username, setUsername] = useState("");
   const [loading, setLoading] = useState(false);
   const [developerInfo, setDeveloperInfo] = useState(null);
 
   const fetchDeveloperInfo = async () => {
     setLoading(true);
     try {
-      const response = await axios.get(`https://api.github.com/users/${username}`);
+      const response = await axios.get(
+        `https://api.github.com/users/${username}`
+      );
       setDeveloperInfo(response.data);
-      toast.success('Spyed on Developer info successfully!');
+      toast.success("Spyed on Developer info successfully!");
     } catch (error) {
-      toast.error('Failed to fetch developer info!');
+      toast.error("Failed to fetch developer info!");
     } finally {
       setLoading(false);
     }
@@ -45,11 +47,15 @@ export default function Developer() {
       {loading && <Loader />}
       {developerInfo && (
         <div className="bg-white p-4 rounded shadow">
-          <Image src={developerInfo.avatar_url} alt={developerInfo.name} className="w-16 h-16 rounded-full mb-4" />
+          <Image
+            src={developerInfo.avatar_url}
+            alt={developerInfo.name}
+            className="w-16 h-16 rounded-full mb-4"
+          />
           <h2 className="text-xl font-bold">{developerInfo.name}</h2>
           <p>Followers: {developerInfo.followers}</p>
-          <p>Location: {developerInfo.location || 'N/A'}</p>
-          <p>Twitter Handle: {developerInfo.twitter_username || 'N/A'}</p>
+          <p>Location: {developerInfo.location || "N/A"}</p>
+          <p>Twitter Handle: {developerInfo.twitter_username || "N/A"}</p>
         </div>
       )}
     </div>

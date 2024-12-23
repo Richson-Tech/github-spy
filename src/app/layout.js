@@ -22,7 +22,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} bg-[#0a0a0a] antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} bg-[#000000] antialiased`}
       >
         <ToastContainer />
         {children}
