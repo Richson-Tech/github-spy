@@ -4,6 +4,7 @@ import axios from 'axios';
 import Loader from '@/components/Loader';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Image from 'next/image';
 export default function Client() {
     const [username, setUsername] = useState('');
     const [loading, setLoading] = useState(false);
@@ -51,7 +52,7 @@ export default function Client() {
         {loading && <Loader />}
         {clientInfo && (
           <div className="bg-white p-4 rounded shadow">
-            <img src={clientInfo.avatar_url} alt={clientInfo.name} className="w-16 h-16 rounded-full mb-4" />
+            <Image src={clientInfo.avatar_url} alt={clientInfo.name} className="w-16 h-16 rounded-full mb-4" />
             <h2 className="text-xl font-bold">{clientInfo.name}</h2>
             <p>Followers: {clientInfo.followers}</p>
             <p>Location: {clientInfo.location || 'N/A'}</p>
