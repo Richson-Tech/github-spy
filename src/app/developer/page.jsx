@@ -51,6 +51,8 @@ export default function Developer() {
             src={developerInfo.avatar_url}
             alt={developerInfo.name}
             className="w-16 h-16 rounded-full mb-4"
+            height={60}
+            width={60}
           />
           <h2 className="text-xl font-bold">{developerInfo.name}</h2>
           <p>Followers: {developerInfo.followers}</p>
