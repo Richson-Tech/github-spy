@@ -24,7 +24,6 @@ export default function Client() {
       const response = await axios.get(
         `https://api.github.com/users/${username}`
       );
-      console.log(response);
       const data = response.data;
       setClientInfo({ ...data, rating: determineRating(data.created_at) });
       toast.success("Client info fetched successfully!");
