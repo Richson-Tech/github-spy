@@ -63,13 +63,30 @@ export default function Client() {
             width={60}
           />
           <h2 className="text-xl font-bold">{clientInfo.name}</h2>
-          <p>Followers: {clientInfo.followers}</p>
-          <p>Location: {clientInfo.location || "N/A"}</p>
-          <p>Twitter: {clientInfo.twitter_username || "N/A"}</p>
-          <p>
-            Date Created: {new Date(clientInfo.created_at).toLocaleDateString()}
+          <p className="font-bold">
+            Followers:{" "}
+            <span className="font-normal">{clientInfo.followers}</span>{" "}
           </p>
-          <p>Rating: {clientInfo.rating}</p>
+          <p className="font-bold">
+            Location:{" "}
+            <span className="font-normal">{clientInfo.location || "N/A"}</span>{" "}
+          </p>
+          <p className="font-bold">
+            Twitter:{" "}
+            <span className="font-normal">
+              {clientInfo.twitter_username || "N/A"}
+            </span>{" "}
+          </p>
+          <p className="font-bold">
+            Date Created:{" "}
+            <span className="font-normal">
+              {new Date(clientInfo.created_at).toLocaleDateString()}
+            </span>
+          </p>
+          <p className="font-bold">
+            Rating:{" "}
+            <span className="font-normal italic">{clientInfo.rating}</span>
+          </p>
         </div>
       )}
     </div>
