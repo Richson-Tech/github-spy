@@ -55,10 +55,26 @@ export default function Developer() {
             height={60}
             width={60}
           />
-          <h2 className="text-xl font-bold">{developerInfo.name}</h2>
-          <p>Followers: {developerInfo.followers}</p>
-          <p>Location: {developerInfo.location || "N/A"}</p>
-          <p>Twitter Handle: {developerInfo.twitter_username || "N/A"}</p>
+          <h2 className="text-xl font-bold">
+            {" "}
+            <span className="font-bold text-xl">{developerInfo.name}</span>
+          </h2>
+          <p className="font-bold">
+            Followers:{" "}
+            <span className="font-normal">{developerInfo.followers}</span>{" "}
+          </p>
+          <p className="font-bold">
+            Location:{" "}
+            <span className="font-normal">
+              {developerInfo.location || "N/A"}
+            </span>
+          </p>
+          <p className="font-bold">
+            Twitter Handle:{" "}
+            <span className="font-normal">
+              {developerInfo.twitter_username || "N/A"}
+            </span>
+          </p>
         </div>
       )}
     </div>
