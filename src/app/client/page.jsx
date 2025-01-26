@@ -14,7 +14,7 @@ export default function Client() {
     const yearsSinceCreation =
       new Date().getFullYear() - new Date(createdAt).getFullYear();
     if (yearsSinceCreation < 1) return "Beginner Developer";
-    if (yearsSinceCreation < 3) return "Mid-level Developer";
+    if (yearsSinceCreation < 4) return "Mid-level Developer";
     return "Senior Developer";
   };
 
