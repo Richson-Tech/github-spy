@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import axios from "axios";
+import { motion } from "framer-motion";
 import Loader from "@/components/Loader";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -18,7 +19,7 @@ export default function Developer() {
         `https://api.github.com/users/${username}`
       );
       setDeveloperInfo(response.data);
-      toast.success("Spyed on Developer info successfully!");
+      toast.success("Spied on Developer info successfully!");
     } catch (error) {
       toast.error("Failed to fetch developer info!");
     } finally {
@@ -47,7 +48,12 @@ export default function Developer() {
       </div>
       {loading && <Loader />}
       {developerInfo && (
-        <div className="bg-white p-4 rounded shadow">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          className="bg-white p-4 rounded shadow"
+        >
           <Image
             src={developerInfo.avatar_url}
             alt={developerInfo.name}
@@ -55,13 +61,10 @@ export default function Developer() {
             height={60}
             width={60}
           />
-          <h2 className="text-xl font-bold">
-            {" "}
-            <span className="font-bold text-xl">{developerInfo.name}</span>
-          </h2>
+          <h2 className="text-xl font-bold">{developerInfo.name}</h2>
           <p className="font-bold">
             Followers:{" "}
-            <span className="font-normal">{developerInfo.followers}</span>{" "}
+            <span className="font-normal">{developerInfo.followers}</span>
           </p>
           <p className="font-bold">
             Location:{" "}
@@ -75,7 +78,7 @@ export default function Developer() {
               {developerInfo.twitter_username || "N/A"}
             </span>
           </p>
-        </div>
+        </motion.div>
       )}
     </div>
   );

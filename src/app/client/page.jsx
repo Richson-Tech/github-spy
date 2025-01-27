@@ -5,6 +5,8 @@ import Loader from "@/components/Loader";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Image from "next/image";
+import { motion } from "framer-motion";
+
 export default function Client() {
   const [username, setUsername] = useState("");
   const [loading, setLoading] = useState(false);
@@ -45,16 +47,23 @@ export default function Client() {
           placeholder="Enter GitHub Username"
           className="border px-4 py-2 w-full rounded mb-4"
         />
-        <button
+        <motion.button
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
           onClick={fetchClientInfo}
           className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600"
         >
           Spy
-        </button>
+        </motion.button>
       </div>
       {loading && <Loader />}
       {clientInfo && (
-        <div className="bg-white p-4 rounded shadow">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="bg-white p-4 rounded shadow"
+        >
           <Image
             src={clientInfo.avatar_url}
             alt={clientInfo.name}
@@ -65,17 +74,17 @@ export default function Client() {
           <h2 className="text-xl font-bold">{clientInfo.name}</h2>
           <p className="font-bold">
             Followers:{" "}
-            <span className="font-normal">{clientInfo.followers}</span>{" "}
+            <span className="font-normal">{clientInfo.followers}</span>
           </p>
           <p className="font-bold">
             Location:{" "}
-            <span className="font-normal">{clientInfo.location || "N/A"}</span>{" "}
+            <span className="font-normal">{clientInfo.location || "N/A"}</span>
           </p>
           <p className="font-bold">
             Twitter:{" "}
             <span className="font-normal">
               {clientInfo.twitter_username || "N/A"}
-            </span>{" "}
+            </span>
           </p>
           <p className="font-bold">
             Date Created:{" "}
@@ -87,7 +96,7 @@ export default function Client() {
             Rating:{" "}
             <span className="font-normal italic">{clientInfo.rating}</span>
           </p>
-        </div>
+        </motion.div>
       )}
     </div>
   );
